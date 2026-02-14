@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Pari ❤️</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --pink: #ff4d6d;
+            --soft-pink: #ffb3c1;
+            --dark-pink: #c9184a;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff0f3;
+            overflow-x: hidden;
+            color: #590d22;
+            scroll-behavior: smooth;
+        }
+
+        /* Falling Hearts Animation */
+        .heart {
+            position: fixed;
+            color: var(--pink);
+            font-size: 20px;
+            user-select: none;
+            z-index: 1000;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(255,179,193,0.3), rgba(255,255,255,1));
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; animation: heartBeat 1.5s infinite; }
+
+        /* Scrolling Gallery */
+        .gallery-container { padding: 50px 0; background: white; }
+        .gallery-title { text-align: center; font-size: 2rem; margin-bottom: 30px; }
+        .scrolling-wrapper {
+            display: flex; overflow-x: scroll; gap: 20px;
+            padding: 20px; scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+        .scrolling-wrapper::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome */
+        
+        .photo-card {
+            min-width: 280px; height: 380px;
+            border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden; border: 5px solid white;
+            transition: transform 0.3s;
+        }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Love Note Section */
+        .love-note {
+            max-width: 700px; margin: 80px auto; padding: 40px;
+            background: white; border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(255, 77, 109, 0.2);
+            line-height: 1.8; font-size: 1.1rem; position: relative;
+            text-align: center;
+        }
+
+        /* Final Question Section */
+        .question-section {
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 500px;
+            background: linear-gradient(white, #fff0f3);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            position: relative;
+            height: 100px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        #yesBtn { background: var(--pink); color: white; z-index: 10; }
+        #noBtn { background: #f0f0f0; color: #888; position: absolute; }
+
+        #success-message {
+            display: none;
+            font-size: 2rem;
+            color: var(--dark-pink);
+            margin-top: 20px;
+            animation: fadeIn 1.5s;
+        }
+
+        @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <iframe id="youtubePlayer" width="0" height="0" src="https://www.youtube.com/embed/BddP6PYo2gs?enablejsapi=1" frameborder="0" allow="autoplay"></iframe>
+
+    <section class="hero">
+        <h1>Happy Valentine's Day, Pari! ❤️</h1>
+        <p>You’re the best thing that ever happened to me.</p>
+        <p style="margin-top: 30px; font-size: 0.9rem; color: var(--pink);">[ Tap anywhere to play music 🎵 ]</p>
+    </section>
+
+    <div class="gallery-container">
+        <h2 class="gallery-title">Memories of Us ✨</h2>
+        <div class="scrolling-wrapper">
+            <div class="photo-card"><img src="https://i.ibb.co/Q7mmky0P/Whats-App-Image-2026-02-14-at-1-18-12-PM.jpg" alt="Pari"></div>
+            <div class="photo-card"><img src="https://i.ibb.co/KcxWHKk6/Whats-App-Image-2026-02-14-at-1-18-13-PM.jpg" alt="Pari"></div>
+            <div class="photo-card"><img src="https://i.ibb.co/27L4KVjg/Whats-App-Image-2026-02-14-at-1-18-14-PM.jpg" alt="Pari"></div>
+            <div class="photo-card"><img src="https://i.ibb.co/twJKFmxH/Whats-App-Image-2026-02-14-at-1-18-15-PM.jpg" alt="Pari"></div>
+            <div class="photo-card"><img src="https://i.ibb.co/VYYCXHLD/Whats-App-Image-2026-02-14-at-1-18-16-PM.jpg" alt="Pari"></div>
+            <div class="photo-card"><img src="https://i.ibb.co/9xP14n1/Whats-App-Image-2026-02-14-at-1-18-11-PM.jpg" alt="Pari"></div>
+        </div>
+    </div>
+
+    <section class="love-note">
+        <h2>My Dearest Pari,</h2>
+        <p>
+            I don’t know how to put everything into words, but I know this much: 
+            you make my days lighter, my smiles easier, and my heart calmer. 
+            Whatever this is between us, it means more than I can ever say.
+        </p>
+        <p>
+            You are my favorite person, my peace, and my home. 
+            Thank you for being you and for choosing me every day.
+        </p>
+        <p style="font-weight: bold; color: var(--dark-pink);">Happy Valentine's Day, my Cutiepie 🌹</p>
+    </section>
+
+    <section class="question-section">
+        <h2 id="question-text">Pari, will you be my Valentine? 🥺</h2>
+        
+        <div class="btn-container">
+            <button class="btn" id="yesBtn">YES!</button>
+            <button class="btn" id="noBtn">No</button>
+        </div>
+
+        <div id="success-message">
+            I knew you'd say yes! <br> I love you forever! ❤️✨
+        </div>
+    </section>
+
+   <audio id="player" loop>
+        <source src="love-song.mp3" type="audio/mpeg">
+    </audio>
+            }
+        }
+
+        // Falling Hearts Generator
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+
+        // Buttons Logic
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const successMsg = document.getElementById('success-message');
+
+        // The Running "No" Button
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            noBtn.style.position = 'fixed';
+        });
+
+        // Yes Button Effect
+        yesBtn.addEventListener('click', () => {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff4d6d', '#ffffff', '#ffb3c1']
+            });
+
+            document.querySelector('.btn-container').style.display = 'none';
+            document.getElementById('question-text').style.display = 'none';
+            successMsg.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
